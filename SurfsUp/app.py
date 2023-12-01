@@ -40,3 +40,17 @@ app = Flask(__name__)
 #################################################
 # Flask Routes
 #################################################
+
+@app.route("/api/v1.0/precipitation") 
+def precipitation():
+    
+    session = Session(Engine)
+     
+    results = (session.query(Measurement.date, Measurement.tobs).order_by(Measurement.date))
+
+    prcpDict = []
+    for row in results:
+        dateDict = {}
+        
+
+    
